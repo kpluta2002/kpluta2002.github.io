@@ -1,6 +1,7 @@
 let pageUrls = {
     about: '/index.html?about',
-    contact: '/index.html?contact'
+    contact: '/index.html?contact',
+    gallery: '/index.html?gallery'
 };
 
 function OnStartUp() {
@@ -127,6 +128,7 @@ function popStateHandler() {
     let loc = window.location.href.toString().split(window.location.host)[1];
     if (loc === pageUrls.contact) { RenderContactPage(); }
     if (loc === pageUrls.about) { RenderAboutPage(); }
+    if (loc === pageUrls.gallery) {RenderGalleryPage(); }
 }
 
 window.onpopstate = popStateHandler;
