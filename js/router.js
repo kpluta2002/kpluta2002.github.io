@@ -64,7 +64,6 @@ function RenderContactPage() {
 
         <!-- Load Google reCAPTCHA API -->
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
     `;
 
     document.getElementById('contact-form').addEventListener('submit', (event) => {
@@ -113,9 +112,13 @@ function RenderContactPage() {
         if (isValid) {
             document.getElementById('success-message').style.display = "block";
             document.getElementById('contact-form').reset();
+
+            // Optional: Reset reCAPTCHA widget after form submission (to make it ready for the next submission)
+            grecaptcha.reset();
         }
     });
 }
+
 
 
 
