@@ -41,7 +41,7 @@ main {
 }
 
 #theme-toggle {
-    align-self: right;
+    align-self: self-end;
 }
 
 body.dark-mode {
