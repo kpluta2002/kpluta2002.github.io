@@ -55,9 +55,11 @@ function RenderContactPage() {
             <textarea id="message" name="message" required></textarea>
             <span class="error" id="message-error"></span>
 
-            <label for="captcha">What is 3 + 4?</label>
-            <input type="text" id="captcha" name="captcha" required>
-            <span class="error" id="captcha-error"></span>
+            <!-- Google reCAPTCHA -->
+            <div class="g-recaptcha" data-sitekey="6LeuaqEqAAAAAMMq8HdvzOhxii3FQ1k5NybHYOKl"></div>
+            <span class="error" id="recaptcha-error"></span>
+            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 
             <button type="submit">Send</button>
         </form>
@@ -70,11 +72,11 @@ function RenderContactPage() {
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
         const message = document.getElementById('message').value.trim();
-        const captcha = document.getElementById('captcha').value.trim();
+        const recaptchaResponse = grecaptcha.getResponse();
 
         let isValid = true;
 
-        // Walidacja pola Name
+        // Basic form validation
         if (name === "") {
             document.getElementById('name-error').textContent = "Name is required.";
             isValid = false;
@@ -82,7 +84,6 @@ function RenderContactPage() {
             document.getElementById('name-error').textContent = "";
         }
 
-        // Walidacja pola Email
         if (!/\S+@\S+\.\S+/.test(email)) {
             document.getElementById('email-error').textContent = "Invalid email address.";
             isValid = false;
@@ -90,7 +91,6 @@ function RenderContactPage() {
             document.getElementById('email-error').textContent = "";
         }
 
-        // Walidacja pola Message
         if (message === "") {
             document.getElementById('message-error').textContent = "Message is required.";
             isValid = false;
@@ -98,21 +98,24 @@ function RenderContactPage() {
             document.getElementById('message-error').textContent = "";
         }
 
-        // Walidacja CAPTCHA
-        if (captcha !== "7") {
-            document.getElementById('captcha-error').textContent = "Incorrect CAPTCHA answer.";
+        // Validate reCAPTCHA
+        if (recaptchaResponse === "") {
+            document.getElementById('recaptcha-error').textContent = "Please complete the CAPTCHA.";
             isValid = false;
         } else {
-            document.getElementById('captcha-error').textContent = "";
+            document.getElementById('recaptcha-error').textContent = "";
         }
 
-        // Jeśli formularz jest poprawny
+        // If valid, show success message
         if (isValid) {
             document.getElementById('success-message').style.display = "block";
             document.getElementById('contact-form').reset();
+            grecaptcha.reset(); // Reset the reCAPTCHA
         }
     });
 }
+
+
 
 
 function RenderGalleryPage() {
