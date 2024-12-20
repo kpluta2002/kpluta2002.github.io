@@ -14,20 +14,20 @@ header {
     align-items: center;
 }
 
-.Header -links -ul {
+.Header-links -ul {
     width: 60%;
     list-style: none;
     display: flex;
     justify-content: space - around;
 }
 
-.header -link {
+.header-link {
     padding: 0.4rem;
     border-radius: 2px;
     cursor: pointer;
 }
 
-.header -link:hover {
+.header-link:hover {
     border-bottom: 1px solid white;
 }
 
