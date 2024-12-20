@@ -61,10 +61,14 @@ function RenderContactPage() {
             <button type="submit">Send</button>
         </form>
         <div id="success-message" style="display: none;">Your message has been sent successfully!</div>
-
-        <!-- Load Google reCAPTCHA API -->
-        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     `;
+
+    // Load the reCAPTCHA API script dynamically after the form is inserted
+    const script = document.createElement('script');
+    script.src = 'https://www.google.com/recaptcha/api.js';
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
 
     document.getElementById('contact-form').addEventListener('submit', (event) => {
         event.preventDefault();
@@ -118,6 +122,7 @@ function RenderContactPage() {
         }
     });
 }
+
 
 
 
