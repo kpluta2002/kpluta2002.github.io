@@ -40,6 +40,10 @@ main {
     font-size: 3rem;
 }
 
+#theme-toggle {
+    align-self: right;
+}
+
 body.dark-mode {
     background-color: #121212;
     color: #ffffff;
