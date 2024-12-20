@@ -83,6 +83,7 @@ function RenderGalleryPage() {
             if (entry.isIntersecting) {
                 const img = entry.target;
                 img.src = img.dataset.src;
+                console.log(`Loading image: ${img.dataset.src}`);
                 observer.unobserve(img);
             }
         });
