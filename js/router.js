@@ -59,13 +59,6 @@ function RenderContactPage() {
 
 }
 
-document.querySelector('#gallery-link').addEventListener('click', () => {
-    let stateObj = { page: 'gallery' };
-    document.title = 'Gallery';
-    history.pushState(stateObj, "gallery", "?gallery");
-    RenderGalleryPage();
-});
-
 function RenderGalleryPage() {
     document.querySelector('main').innerHTML = `
         <h1 class="title">Gallery</h1>
@@ -79,7 +72,7 @@ function RenderGalleryPage() {
     for (let i = 1; i <= 9; i++) {
         const img = document.createElement('img');
         img.className = 'thumbnail';
-        img.dataset.src = `https://via.placeholder.com/300?text=Image+${i}`;
+        img.dataset.src = `https://dummyimage.com/300&text=Image_${i}`;
         img.alt = `Image ${i}`;
         gallery.appendChild(img);
     }
@@ -119,6 +112,7 @@ function RenderGalleryPage() {
         }
     });
 }
+
 document.getElementById('theme-toggle').addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
     });
