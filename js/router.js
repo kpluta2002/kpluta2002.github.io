@@ -69,7 +69,7 @@ function RenderGalleryPage() {
         </div>`;
 
     const gallery = document.querySelector('.gallery');
-    for (let i = 1; i <= 9; i++) {
+    for (let i = 1; i <= 40; i++) {
         const img = document.createElement('img');
         img.className = 'thumbnail';
         img.dataset.src = `https://picsum.photos/200`;
