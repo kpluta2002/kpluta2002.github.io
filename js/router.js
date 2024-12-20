@@ -45,19 +45,75 @@ function RenderContactPage() {
         <form id="contact-form">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
+            <span class="error" id="name-error"></span>
+
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
+            <span class="error" id="email-error"></span>
+
             <label for="message">Message:</label>
             <textarea id="message" name="message" required></textarea>
+            <span class="error" id="message-error"></span>
+
+            <label for="captcha">What is 3 + 4?</label>
+            <input type="text" id="captcha" name="captcha" required>
+            <span class="error" id="captcha-error"></span>
+
             <button type="submit">Send</button>
-        </form>`;
+        </form>
+        <div id="success-message" style="display: none;">Your message has been sent successfully!</div>
+    `;
 
     document.getElementById('contact-form').addEventListener('submit', (event) => {
         event.preventDefault();
-        alert('Form submitted!');
-    });
 
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+        const captcha = document.getElementById('captcha').value.trim();
+
+        let isValid = true;
+
+        // Walidacja pola Name
+        if (name === "") {
+            document.getElementById('name-error').textContent = "Name is required.";
+            isValid = false;
+        } else {
+            document.getElementById('name-error').textContent = "";
+        }
+
+        // Walidacja pola Email
+        if (!/\S+@\S+\.\S+/.test(email)) {
+            document.getElementById('email-error').textContent = "Invalid email address.";
+            isValid = false;
+        } else {
+            document.getElementById('email-error').textContent = "";
+        }
+
+        // Walidacja pola Message
+        if (message === "") {
+            document.getElementById('message-error').textContent = "Message is required.";
+            isValid = false;
+        } else {
+            document.getElementById('message-error').textContent = "";
+        }
+
+        // Walidacja CAPTCHA
+        if (captcha !== "7") {
+            document.getElementById('captcha-error').textContent = "Incorrect CAPTCHA answer.";
+            isValid = false;
+        } else {
+            document.getElementById('captcha-error').textContent = "";
+        }
+
+        // Jeśli formularz jest poprawny
+        if (isValid) {
+            document.getElementById('success-message').style.display = "block";
+            document.getElementById('contact-form').reset();
+        }
+    });
 }
+
 
 function RenderGalleryPage() {
     document.querySelector('main').innerHTML = `

@@ -120,3 +120,16 @@ body.dark-mode {
     font-size: 1.5rem;
     cursor: pointer;
 }
+
+.error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    display: block;
+}
+
+#success-message {
+    color: green;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
