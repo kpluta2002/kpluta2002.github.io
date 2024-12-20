@@ -41,7 +41,6 @@ function RenderAboutPage() {
 
 function RenderContactPage() {
     document.querySelector('main').innerHTML = `
-        <h1 class="title">Contact with me</h1>
         <form id="contact-form">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
@@ -55,15 +54,17 @@ function RenderContactPage() {
             <textarea id="message" name="message" required></textarea>
             <span class="error" id="message-error"></span>
 
-            <!-- Google reCAPTCHA -->
-            <div class="g-recaptcha" data-sitekey="6LeuaqEqAAAAAMMq8HdvzOhxii3FQ1k5NybHYOKl"></div>
-            <span class="error" id="recaptcha-error"></span>
-            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
+            <!-- Google reCAPTCHA widget -->
+            <div class="g-recaptcha" data-sitekey="YOUR_GOOGLE_RECAPTCHA_SITE_KEY"></div>
+            <span class="error" id="captcha-error"></span>
 
             <button type="submit">Send</button>
         </form>
         <div id="success-message" style="display: none;">Your message has been sent successfully!</div>
+
+        <!-- Load Google reCAPTCHA API -->
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     `;
 
     document.getElementById('contact-form').addEventListener('submit', (event) => {
@@ -72,11 +73,11 @@ function RenderContactPage() {
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
         const message = document.getElementById('message').value.trim();
-        const recaptchaResponse = grecaptcha.getResponse();
+        const captchaResponse = grecaptcha.getResponse();  // Get the reCAPTCHA response
 
         let isValid = true;
 
-        // Basic form validation
+        // Walidacja pola Name
         if (name === "") {
             document.getElementById('name-error').textContent = "Name is required.";
             isValid = false;
@@ -84,6 +85,7 @@ function RenderContactPage() {
             document.getElementById('name-error').textContent = "";
         }
 
+        // Walidacja pola Email
         if (!/\S+@\S+\.\S+/.test(email)) {
             document.getElementById('email-error').textContent = "Invalid email address.";
             isValid = false;
@@ -91,6 +93,7 @@ function RenderContactPage() {
             document.getElementById('email-error').textContent = "";
         }
 
+        // Walidacja pola Message
         if (message === "") {
             document.getElementById('message-error').textContent = "Message is required.";
             isValid = false;
@@ -98,19 +101,18 @@ function RenderContactPage() {
             document.getElementById('message-error').textContent = "";
         }
 
-        // Validate reCAPTCHA
-        if (recaptchaResponse === "") {
-            document.getElementById('recaptcha-error').textContent = "Please complete the CAPTCHA.";
+        // Walidacja CAPTCHA
+        if (!captchaResponse) {
+            document.getElementById('captcha-error').textContent = "Please verify that you are not a robot.";
             isValid = false;
         } else {
-            document.getElementById('recaptcha-error').textContent = "";
+            document.getElementById('captcha-error').textContent = "";
         }
 
-        // If valid, show success message
+        // Jeśli formularz jest poprawny
         if (isValid) {
             document.getElementById('success-message').style.display = "block";
             document.getElementById('contact-form').reset();
-            grecaptcha.reset(); // Reset the reCAPTCHA
         }
     });
 }
@@ -175,14 +177,14 @@ function RenderGalleryPage() {
 
 document.getElementById('theme-toggle').addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
-    });
-    
+});
+
 
 function popStateHandler() {
     let loc = window.location.href.toString().split(window.location.host)[1];
     if (loc === pageUrls.contact) { RenderContactPage(); }
     if (loc === pageUrls.about) { RenderAboutPage(); }
-    if (loc === pageUrls.gallery) {RenderGalleryPage(); }
+    if (loc === pageUrls.gallery) { RenderGalleryPage(); }
 }
 
 window.onpopstate = popStateHandler;
