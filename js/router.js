@@ -72,7 +72,7 @@ function RenderGalleryPage() {
     for (let i = 1; i <= 40; i++) {
         const img = document.createElement('img');
         img.className = 'thumbnail';
-        img.dataset.src = `https://picsum.photos/200`;
+        img.dataset.src = `https://placehold.co/300?text=Hello_World${i}`;
         img.alt = `Image ${i}`;
         gallery.appendChild(img);
     }
