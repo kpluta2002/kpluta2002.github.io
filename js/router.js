@@ -72,7 +72,7 @@ function RenderGalleryPage() {
     for (let i = 1; i <= 9; i++) {
         const img = document.createElement('img');
         img.className = 'thumbnail';
-        img.dataset.src = `https://dummyimage.com/300&text=Image_${i}`;
+        img.dataset.src = `https://picsum.photos/200`;
         img.alt = `Image ${i}`;
         gallery.appendChild(img);
     }
