@@ -55,7 +55,7 @@ function RenderContactPage() {
             <span class="error" id="message-error"></span>
 
             <!-- Google reCAPTCHA widget -->
-            <div class="g-recaptcha" data-sitekey="YOUR_GOOGLE_RECAPTCHA_SITE_KEY"></div>
+            <div class="g-recaptcha" data-sitekey="6LeuaqEqAAAAAMMq8HdvzOhxii3FQ1k5NybHYOKl"></div>
             <span class="error" id="captcha-error"></span>
 
             <button type="submit">Send</button>
