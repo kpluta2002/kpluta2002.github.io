@@ -4,35 +4,64 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PWA PIAC TEST</title>
+    <title>PWA Cat Memes</title>
     <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">    
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="images/pwa-icon-180.png">
     <link rel="apple-touch-startup-image" href="images/apple-splash-640-1136.png" media="(device-width: 320px) and (device-height: 568px)">
     <link rel="apple-touch-startup-image" href="images/apple-splash-750-1334.png" media="(device-width: 375px) and (device-height: 667px)">
-    <link rel="apple-touch-startup-image" href="images/apple-splash-828-1792.png" media="(device-width: 414px) and (device-height: 896px)">
-    <link rel="apple-touch-startup-image" href="images/apple-splash-828-1792.png" media="(device-width: 412px) and (device-height: 823px)">
-    <link rel="apple-touch-startup-image" href="images/apple-splash-1125-2436.png" media="(device-width: 375px) and (device-height: 812px)">
-    <link rel="apple-touch-startup-image" href="images/apple-splash-1242-2688.png" media="(device-width: 414px) and (device-height: 896px)">
-    <link rel="apple-touch-startup-image" href="images/apple-splash-1536-2048.png" media="(min-device-width: 768px) and (max-device-width: 1024px)">
-    <link rel="apple-touch-startup-image" href="images/apple-splash-1668-2224.png" media="(min-device-width: 834px) and (max-device-width: 1112px)">
-    <link rel="apple-touch-startup-image" href="images/apple-splash-1668-2388.png" media="(min-device-width: 834px) and (max-device-width: 1194px)">
-    <link rel="apple-touch-startup-image" href="images/apple-splash-2048-2732.png" media="(min-device-width: 1024px) and (max-device-width: 1366px)">
-    <meta name="apple-mobile-web-app-capable" content="yes">    
-    <meta name="apple-mobile-web-app-status-bar" content="#db4938">   
-    <meta name="apple-mobile-web-app-status-bar-style" content="default"> 
-    <meta name="theme-color" content="#db4938">    
-    <meta name="apple-mobile-web-app-title" content="PWA PIAC">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar" content="#db4938">
+    <meta name="theme-color" content="#db4938">
+    <meta name="apple-mobile-web-app-title" content="PWA Cat Memes">
 </head>
 
 <body>
     <div class="container">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/memes">Memes</a></li>
+                    <li><a href="/about">About</a></li>
+                </ul>
+            </nav>
+        </header>
+
         <main>
-            <h1 class="title">Hello World!</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+            <h1 class="title">Cat Memes App</h1>
+            <p>Welcome to the funniest collection of cat memes!</p>
+            
+            <section class="memes">
+                <h2>Featured Memes</h2>
+                <div class="meme-gallery">
+                    <div class="meme">
+                        <img src="images/cat-meme-1.jpg" alt="Cat Meme 1">
+                        <p>When you realize it's Monday...</p>
+                    </div>
+                    <div class="meme">
+                        <img src="images/cat-meme-2.jpg" alt="Cat Meme 2">
+                        <p>Is it time for food yet?</p>
+                    </div>
+                    <div class="meme">
+                        <img src="images/cat-meme-3.jpg" alt="Cat Meme 3">
+                        <p>Trying to be serious, but...</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about">
+                <h2>About Us</h2>
+                <p>This is a simple Progressive Web App dedicated to bringing you the funniest cat memes. Enjoy!</p>
+            </section>
         </main>
     </div>
+
+    <footer>
+        <p>&copy; 2025 Cat Memes App. All Rights Reserved.</p>
+    </footer>
+
     <script src="js/main.js"></script>
 </body>
 
