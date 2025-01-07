@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "live-server": "^1.2.2",
+    "pwa-asset-generator": "^6.4.0"
+  }
+}
